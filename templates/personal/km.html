@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с 8 марта</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e1f8f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4ecdc4, #56e0d3);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
+        }
+
+        .photo-container {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .photo-container {
+                margin-bottom: 0;
+                margin-right: 30px;
+            }
+        }
+
+        .photo {
+            width: 100%;
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message {
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .message h2 {
+            color: #4ecdc4;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .message p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .credits {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: #4ecdc4;
+        }
+
+        .personalized-message {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #4ecdc4;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(78, 205, 196, 0.4));
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            animation: rise 10s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.3);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) translateX(20px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            font-size: 20px;
+            color: #4ecdc4;
+            opacity: 0;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0% {
+                transform: scale(0.1);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles" id="bubbles"></div>
+    <div class="stars" id="stars"></div>
+
+    <div class="card">
+        <div class="header">
+            <h1>С 8 Марта, Екатерина!</h1>
+        </div>
+
+        <div class="content">
+            <div class="photo-container">
+                <div class="photo">
+                    <img src="/pic/km.jpg" alt="Фотография">
+                </div>
+            </div>
+
+            <div class="message">
+                <h2>Дорогая Екатерина!</h2>
+                <p>От всей души поздравляем тебя с Международным женским днем! Твое участие в нашей команде привносит особую атмосферу тепла и профессионализма.</p>
+
+                <div class="personalized-message">
+                    Твои идеи и креативный подход к решению задач всегда вызывают восхищение. Ценим твою открытость, ответственность и неповторимый взгляд на мир!
+                </div>
+
+                <p>Пусть этот весенний праздник подарит тебе море солнечного настроения, ярких впечатлений и приятных сюрпризов! Желаем, чтобы каждый новый день был полон вдохновения, а мечты превращались в реальность!</p>
+                <p><strong>С теплом и уважением, <br>Актив политеха</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Политех • 8 марта 2025</p>
+            <div class="credits">
+                Создано с любовью
+            </div>
+            <div class="logo">
+                <span>Политех СурГУ</span>
+                &times;
+                <span>Hedgehogs</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Создаем пузырьки
+        function createBubbles() {
+            const bubblesContainer = document.getElementById('bubbles');
+            const numberOfBubbles = 25;
+
+            for (let i = 0; i < numberOfBubbles; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+
+                // Случайные размеры и позиции
+                const size = Math.random() * 40 + 10;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+
+                const left = Math.random() * 100;
+                bubble.style.left = `${left}%`;
+
+                const delay = Math.random() * 10;
+                bubble.style.animationDelay = `${delay}s`;
+
+                const duration = Math.random() * 10 + 8;
+                bubble.style.animationDuration = `${duration}s`;
+
+                bubblesContainer.appendChild(bubble);
+            }
+        }
+
+        // Создаем мерцающие звезды
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 30;
+            const starEmojis = ['✨', '⭐', '🌟'];
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+
+                // Случайное эмодзи звезды
+                const randomStar = starEmojis[Math.floor(Math.random() * starEmojis.length)];
+                star.textContent = randomStar;
+
+                // Случайные позиции
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                star.style.left = `${left}%`;
+                star.style.top = `${top}%`;
+
+                const delay = Math.random() * 3;
+                star.style.animationDelay = `${delay}s`;
+
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Запускаем создание эффектов после загрузки страницы
+        window.onload = function() {
+            createBubbles();
+            createStars();
+        };
+    </script>
+</body>
+</html>

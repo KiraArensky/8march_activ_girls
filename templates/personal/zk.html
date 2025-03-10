@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с 8 марта</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0e6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff7eb3, #ff65a3);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
+        }
+
+        .photo-container {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .photo-container {
+                margin-bottom: 0;
+                margin-right: 30px;
+            }
+        }
+
+        .photo {
+            width: 100%;
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message {
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .message h2 {
+            color: #ff65a3;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .message p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .credits {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: #ff65a3;
+        }
+
+        .personalized-message {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #ff65a3;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .fireflies {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .firefly {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #ff8fab;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: moveFirefly 10s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes moveFirefly {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100px, -100px);
+                opacity: 0;
+            }
+        }
+
+        .glitter {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .glitter-piece {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #ff8fab, 0 0 10px #ff8fab;
+            opacity: 0;
+            animation: glitter 3s linear infinite;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff65a3;
+            opacity: 0;
+            animation: floatHeart 8s linear infinite;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(100px, -200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes glitter {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fireflies" id="fireflies"></div>
+    <div class="glitter" id="glitter"></div>
+    <div class="floating-hearts" id="hearts"></div>
+
+    <div class="card">
+        <div class="header">
+            <h1>С 8 Марта, Земфира!</h1>
+        </div>
+
+        <div class="content">
+            <div class="photo-container">
+                <div class="photo">
+                    <img src="/pic/zk.jpg" alt="Фотография Земфиры">
+                </div>
+            </div>
+
+            <div class="message">
+                <h2>Дорогая Земфира!</h2>
+                <p>Поздравляем тебя с Международным женским днем! В этот прекрасный весенний праздник хотим выразить наше восхищение твоей индивидуальностью и талантами.</p>
+
+                <div class="personalized-message">
+                    Твоя энергия и позитивный настрой всегда поднимают настроение окружающим. Ты привносишь в наш коллектив особую атмосферу тепла и вдохновения. Спасибо за то, что ты с нами!
+                </div>
+
+                <p>Пусть этот весенний день подарит тебе море цветов, комплиментов и внимания! Желаем, чтобы все твои начинания увенчались успехом, а жизнь наполнялась яркими красками и незабываемыми моментами!</p>
+                <p><strong>С теплом и уважением, <br>Актив политеха</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Политех • 8 марта 2025</p>
+            <div class="credits">
+                Создано с любовью
+            </div>
+            <div class="logo">
+                <span>Политех СурГУ</span>
+                &times;
+                <span>Hedgehogs</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Создаем эффект светлячков
+        function createFireflies() {
+            const firefliesContainer = document.getElementById('fireflies');
+            const numberOfFireflies = 40;
+
+            for (let i = 0; i < numberOfFireflies; i++) {
+                const firefly = document.createElement('div');
+                firefly.classList.add('firefly');
+
+                // Случайные позиции и анимация
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                firefly.style.left = `${left}%`;
+                firefly.style.top = `${top}%`;
+
+                const size = Math.random() * 4 + 2;
+                firefly.style.width = `${size}px`;
+                firefly.style.height = `${size}px`;
+
+                const delay = Math.random() * 10;
+                firefly.style.animationDelay = `${delay}s`;
+
+                const duration = Math.random() * 8 + 5;
+                firefly.style.animationDuration = `${duration}s`;
+
+                // Уникальный путь для каждого светлячка
+                const xMove = Math.random() * 200 - 100;
+                const yMove = Math.random() * 200 - 100;
+                firefly.style.animationName = `moveFirefly${i}`;
+
+                // Создаем уникальную анимацию для каждого светлячка
+                const styleSheet = document.styleSheets[0];
+                const keyframes = `@keyframes moveFirefly${i} {
+                    0% { transform: translate(0, 0); opacity: 0; }
+                    10% { opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { transform: translate(${xMove}px, ${yMove}px); opacity: 0; }
+                }`;
+
+                styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+                firefliesContainer.appendChild(firefly);
+            }
+        }
+
+        // Создаем эффект блесток
+        function createGlitter() {
+            const glitterContainer = document.getElementById('glitter');
+            const numberOfPieces = 50;
+
+            for (let i = 0; i < numberOfPieces; i++) {
+                const glitterPiece = document.createElement('div');
+                glitterPiece.classList.add('glitter-piece');
+
+                // Случайные позиции и задержки
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                glitterPiece.style.left = `${left}%`;
+                glitterPiece.style.top = `${top}%`;
+
+                const delay = Math.random() * 3;
+                glitterPiece.style.animationDelay = `${delay}s`;
+
+                glitterContainer.appendChild(glitterPiece);
+            }
+        }
+
+        // Создаем эффект плавающих сердечек
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const numberOfHearts = 20;
+
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+
+                // Случайные позиции и задержки
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                heart.style.left = `${left}%`;
+                heart.style.top = `${top}%`;
+
+                const delay = Math.random() * 8;
+                heart.style.animationDelay = `${delay}s`;
+
+                const size = Math.random() * 20 + 10;
+                heart.style.fontSize = `${size}px`;
+
+                const duration = Math.random() * 10 + 5;
+                heart.style.animationDuration = `${duration}s`;
+
+                // Уникальный путь для каждого сердечка
+                const xMove = Math.random() * 200 - 100;
+                const yMove = Math.random() * -300;
+                heart.style.animationName = `floatHeart${i}`;
+
+                // Создаем уникальную анимацию для каждого сердечка
+                const styleSheet = document.styleSheets[0];
+                const keyframes = `@keyframes floatHeart${i} {
+                    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+                    10% { opacity: 0.7; }
+                    90% { opacity: 0.7; }
+                    100% { transform: translate(${xMove}px, ${yMove}px) rotate(360deg); opacity: 0; }
+                }`;
+
+                styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Запускаем создание эффектов после загрузки страницы
+        window.onload = function() {
+            createFireflies();
+            createGlitter();
+            createHearts();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравления с 8 марта - Актив Политеха СурГУ</title>
+    <style>
+        :root {
+            --primary-color: #ff6b98;
+            --secondary-color: #ff85a1;
+            --background-color: #f8e1e8;
+            --card-color: white;
+            --text-color: #333;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--card-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            font-size: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 6px var(--shadow-color);
+        }
+
+        .credits {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        .logo {
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 3s infinite;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        .header-animation {
+            animation: headerFade 1s ease-in-out;
+        }
+
+        .card-animation {
+            opacity: 0;
+            animation: cardsFade 0.5s ease-in-out forwards;
+        }
+
+        @keyframes headerFade {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardsFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sparkles" id="sparkles"></div>
+
+    <header class="header-animation">
+        <h1>С 8 Марта!</h1>
+        <div class="subtitle">Поздравления для девушек актива Политеха СурГУ</div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Наши поздравления</h2>
+
+        <div class="gallery">
+            <!-- Карточка 1 - Гущина Мария -->
+            <div class="card card-animation" style="animation-delay: 0.1s;">
+                <div class="card-image">
+                    <img src="/pic/mg.jpg" alt="Фото Марии">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Гущина Мария</h3>
+                    <div class="card-subtitle">Яркая и вдохновляющая</div>
+                    <p class="card-description">Пусть этот весенний праздник подарит тебе вдохновение и радость! Твое обаяние и креативность делают нашу команду особенной.</p>
+                    <a href="personal/mg.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 2 - Березовская Дарья -->
+            <div class="card card-animation" style="animation-delay: 0.2s;">
+                <div class="card-image">
+                    <img src="/pic/db.jpg" alt="Фото Дарьи">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Березовская Дарья</h3>
+                    <div class="card-subtitle">Талантливая и энергичная</div>
+                    <p class="card-description">С праздником весны! Твоя энергия и творческий подход вдохновляют всех нас. Спасибо за яркие идеи и позитивную атмосферу!</p>
+                    <a href="personal/db.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="card card-animation" style="animation-delay: 0.3s;">
+                <div class="card-image">
+                    <img src="/pic/lh.jpg" alt="Фото Лианы">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Хисматулина Лиана</h3>
+                    <div class="card-subtitle">Целеустремленная и харизматичная</div>
+                    <p class="card-description">Поздравляем с 8 Марта! Твои лидерские качества и организаторский талант помогают нашей команде достигать новых высот каждый день.</p>
+                    <a href="personal/lh.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="card card-animation" style="animation-delay: 0.4s;">
+                <div class="card-image">
+                    <img src="/pic/km.jpg" alt="Фото Екатерины">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Митряшкина Екатерина</h3>
+                    <div class="card-subtitle">Креативная и внимательная</div>
+                    <p class="card-description">В этот праздничный день желаем тебе вдохновения и новых креативных идей! Твой профессионализм и энтузиазм – наше богатство.</p>
+                    <a href="personal/km.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 5 -->
+            <div class="card card-animation" style="animation-delay: 0.5s;">
+                <div class="card-image">
+                    <img src="/pic/vy.jpg" alt="Фото Виктории">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Яковлева Виктория</h3>
+                    <div class="card-subtitle">Ответственная и внимательная к деталям</div>
+                    <p class="card-description">С 8 Марта! Пусть каждый день приносит тебе радость и успех. Твой организаторский талант и внимание к деталям восхищают всю команду.</p>
+                    <a href="personal/vy.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 6 -->
+            <div class="card card-animation" style="animation-delay: 0.6s;">
+                <div class="card-image">
+                    <img src="/pic/kr.jpg" alt="Фото Кристины">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Решетникова Кристина</h3>
+                    <div class="card-subtitle">Надежная и вдохновляющая</div>
+                    <p class="card-description">Поздравляем с праздником весны! Твой профессионализм и ответственный подход к делу вдохновляют нас всех быть лучше каждый день.</p>
+                    <a href="personal/kr.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 7 -->
+            <div class="card card-animation" style="animation-delay: 0.7s;">
+                <div class="card-image">
+                    <img src="/pic/zk.jpg" alt="Фото Земфиры">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Кильдина Земфира</h3>
+                    <div class="card-subtitle">Творческая и вдохновенная</div>
+                    <p class="card-description">С Международным женским днем! Твоя креативность и любовь к искусству делают нашу жизнь ярче и наполняют её красотой.</p>
+                    <a href="personal/zk.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 8 -->
+            <div class="card card-animation" style="animation-delay: 0.8s;">
+                <div class="card-image">
+                    <img src="/pic/pi.jpg" alt="Фото Полины">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Ильина Полина</h3>
+                    <div class="card-subtitle">Отзывчивая и душевная</div>
+                    <p class="card-description">Поздравляем с 8 Марта! Твоя доброта и умение вдохновлять других – настоящий дар. Благодарим за твою энергию и преданность общему делу.</p>
+                    <a href="personal/pi.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 9 -->
+            <div class="card card-animation" style="animation-delay: 0.9s;">
+                <div class="card-image">
+                    <img src="/pic/mk.jpg" alt="Фото Марии">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Колодий Мария</h3>
+                    <div class="card-subtitle">Умная и проницательная</div>
+                    <p class="card-description">С праздником весны! Твой интеллект и аналитический склад ума вызывают восхищение. Желаем вдохновения и новых научных достижений!</p>
+                    <a href="personal/mk.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 10 -->
+            <div class="card card-animation" style="animation-delay: 1.0s;">
+                <div class="card-image">
+                    <img src="/pic/vm.jpg" alt="Фото Виктории">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Мамадова Виктория</h3>
+                    <div class="card-subtitle">Стильная и креативная</div>
+                    <p class="card-description">С 8 Марта! Твой художественный вкус и креативное мышление превращают обычные идеи в произведения искусства. Спасибо за твой талант!</p>
+                    <a href="personal/vm.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 11 -->
+            <div class="card card-animation" style="animation-delay: 1.1s;">
+                <div class="card-image">
+                    <img src="/pic/dc.jpg" alt="Фото Дарьи">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Цап Дарья</h3>
+                    <div class="card-subtitle">Организованная и целеустремленная</div>
+                    <p class="card-description">Поздравляем с весенним праздником! Твоя оперативность и умение структурировать информацию – неоценимый вклад в работу всей команды.</p>
+                    <a href="personal/dc.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+
+            <!-- Карточка 12 -->
+            <div class="card card-animation" style="animation-delay: 1.2s;">
+                <div class="card-image">
+                    <img src="/pic/em.jpg" alt="Фото Эли">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Миргалиева Эля</h3>
+                    <div class="card-subtitle">Общительная и открытая миру</div>
+                    <p class="card-description">С праздником 8 Марта! Твоя коммуникабельность и дипломатичность открывают новые горизонты. Спасибо за расширение границ нашего сотрудничества!</p>
+                    <a href="personal/em.html" class="btn">Открыть поздравление</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>С праздником 8 марта, дорогие девушки!</p>
+        <div class="credits">
+            Создано с любовью в 2025 году
+        </div>
+        <div class="logo">
+            <span>Политех СурГУ</span>
+            &times;
+            <span>Hedgehogs</span>
+        </div>
+    </footer>
+
+    <script>
+        // Создаем эффект мерцающих блесток
+        function createSparkles() {
+            const sparklesContainer = document.getElementById('sparkles');
+            const numberOfSparkles = 30;
+
+            for (let i = 0; i < numberOfSparkles; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+
+                // Рандомные позиции
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+
+                sparkle.style.left = `${left}%`;
+                sparkle.style.top = `${top}%`;
+
+                // Рандомные задержки для анимации
+                const delay = Math.random() * 3;
+                sparkle.style.animationDelay = `${delay}s`;
+
+                sparklesContainer.appendChild(sparkle);
+            }
+        }
+
+        // Задержка для анимации карточек
+        function setCardAnimationDelays() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+            });
+        }
+
+        // Запускаем функции после загрузки страницы
+        window.onload = function() {
+            createSparkles();
+            setCardAnimationDelays();
+        };
+    </script>
+</body>
+</html>

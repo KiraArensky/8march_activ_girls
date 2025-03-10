@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с 8 марта</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff1e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff9a8b, #ff6a88);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
+        }
+
+        .photo-container {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .photo-container {
+                margin-bottom: 0;
+                margin-right: 30px;
+            }
+        }
+
+        .photo {
+            width: 100%;
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message {
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .message h2 {
+            color: #ff6a88;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .message p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .credits {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: #ff6a88;
+        }
+
+        .personalized-message {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #ff6a88;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffd700;
+            top: -10px;
+            animation: fall 4s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 1;
+                top: -10px;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0.3;
+                top: 100vh;
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff6a88;
+            opacity: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(0, -100px) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti" id="confetti"></div>
+    <div class="hearts" id="hearts"></div>
+
+    <div class="card">
+        <div class="header">
+            <h1>С 8 Марта, Виктория!</h1>
+        </div>
+
+        <div class="content">
+            <div class="photo-container">
+                <div class="photo">
+                    <img src="/pic/vy.jpg" alt="Фотография">
+                </div>
+            </div>
+
+            <div class="message">
+                <h2>Дорогая Виктория!</h2>
+                <p>Поздравляем тебя с прекрасным праздником весны – Международным женским днем! Твой оптимизм и энергия создают особую атмосферу в нашем коллективе.</p>
+
+                <div class="personalized-message">
+                    Твои таланты и целеустремленность восхищают нас! Благодарим тебя за твой вклад, инициативность и те яркие моменты, которые ты привносишь в нашу команду.
+                </div>
+
+                <p>Пусть этот весенний день принесет тебе море улыбок, тепла и вдохновения! Желаем, чтобы все твои мечты сбывались, а каждый день был наполнен радостью и новыми интересными возможностями!</p>
+                <p><strong>С теплом и уважением, <br>Актив политеха</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Политех • 8 марта 2025</p>
+            <div class="credits">
+                Создано с любовью
+            </div>
+            <div class="logo">
+                <span>Политех СурГУ</span>
+                &times;
+                <span>Hedgehogs</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Создаем эффект конфетти
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            const numberOfPieces = 100;
+            const colors = ['#ff6a88', '#ffb347', '#ffcc33', '#e8c3b9', '#ff9a8b'];
+
+            for (let i = 0; i < numberOfPieces; i++) {
+                const piece = document.createElement('div');
+                piece.classList.add('confetti-piece');
+
+                // Случайные стили
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.backgroundColor = randomColor;
+
+                const left = Math.random() * 100;
+                piece.style.left = `${left}%`;
+
+                const size = Math.random() * 10 + 5;
+                piece.style.width = `${size}px`;
+                piece.style.height = `${size}px`;
+
+                const delay = Math.random() * 4;
+                piece.style.animationDelay = `${delay}s`;
+
+                const duration = Math.random() * 3 + 2;
+                piece.style.animationDuration = `${duration}s`;
+
+                // Случайная форма
+                if (Math.random() > 0.5) {
+                    piece.style.borderRadius = '50%';
+                }
+
+                confettiContainer.appendChild(piece);
+            }
+        }
+
+        // Создаем эффект плавающих сердечек
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const numberOfHearts = 15;
+            const heartEmoji = '❤️';
+
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.textContent = heartEmoji;
+
+                // Случайные позиции
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                heart.style.left = `${left}%`;
+                heart.style.top = `${top}%`;
+
+                const delay = Math.random() * 5;
+                heart.style.animationDelay = `${delay}s`;
+
+                heartsContainer.appendChild(heart);
+            }
+        }
+
+        // Запускаем создание эффектов после загрузки страницы
+        window.onload = function() {
+            createConfetti();
+            createHearts();
+        };
+    </script>
+</body>
+</html>

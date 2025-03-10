@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с 8 марта</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8e1e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b98, #ff85a1);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
+        }
+
+        .photo-container {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .photo-container {
+                margin-bottom: 0;
+                margin-right: 30px;
+            }
+        }
+
+        .photo {
+            width: 100%;
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message {
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .message h2 {
+            color: #ff6b98;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .message p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .credits {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: #ff6b98;
+        }
+
+        .personalized-message {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #ff85a1;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff85a1;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 2s infinite;
+        }
+
+        .flowers {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            bottom: -50px;
+            font-size: 30px;
+            animation: floatUp 15s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sparkles" id="sparkles"></div>
+    <div class="flowers" id="flowers"></div>
+
+    <div class="card">
+        <div class="header">
+            <h1>С 8 Марта, Мария!</h1>
+        </div>
+
+        <div class="content">
+            <div class="photo-container">
+                <div class="photo">
+                    <img src="/pic/mg.jpg" alt="Фотография">
+                </div>
+            </div>
+
+            <div class="message">
+                <h2>Дорогая Мария!</h2>
+                <p>В этот чудесный весенний день хотим поздравить тебя с Международным женским днем! Твоя яркая личность освещает всех вокруг и делает наш коллектив особенным.</p>
+
+                <div class="personalized-message">
+                    Твоя энергия и энтузиазм вдохновляют нас всех! Благодарим тебя за то, что ты делишься своей позитивной энергией и талантами, которые так ценны для нашей команды.
+                </div>
+
+                <p>Пусть этот весенний праздник принесёт тебе море улыбок, комплиментов и прекрасное настроение! Желаем, чтобы каждый день был наполнен радостью, любовью и успехом во всех начинаниях!</p>
+                <p><strong>С теплом и уважением, <br>Актив политеха</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Политех • 8 марта 2025</p>
+            <div class="credits">
+                Создано с любовью
+            </div>
+            <div class="logo">
+                <span>Политех СурГУ</span>
+                &times;
+                <span>Hedgehogs</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Создаем эффект мерцающих блесток
+        function createSparkles() {
+            const sparklesContainer = document.getElementById('sparkles');
+            const numberOfSparkles = 30;
+
+            for (let i = 0; i < numberOfSparkles; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+
+                // Рандомные позиции
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+
+                sparkle.style.left = `${left}%`;
+                sparkle.style.top = `${top}%`;
+
+                // Рандомные задержки для анимации
+                const delay = Math.random() * 2;
+                sparkle.style.animationDelay = `${delay}s`;
+
+                sparklesContainer.appendChild(sparkle);
+            }
+        }
+
+        // Создаем плавающие цветы
+        function createFlowers() {
+            const flowersContainer = document.getElementById('flowers');
+            const flowerEmojis = ['🌸', '🌹', '🌺', '🌻', '🌷', '💐', '🌼'];
+            const numberOfFlowers = 15;
+
+            for (let i = 0; i < numberOfFlowers; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+
+                // Случайное эмодзи цветка
+                const randomFlower = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+                flower.textContent = randomFlower;
+
+                // Случайное положение и анимация
+                const left = Math.random() * 100;
+                flower.style.left = `${left}%`;
+
+                const size = Math.random() * 20 + 20;
+                flower.style.fontSize = `${size}px`;
+
+                const delay = Math.random() * 10;
+                flower.style.animationDelay = `${delay}s`;
+
+                const duration = Math.random() * 10 + 10;
+                flower.style.animationDuration = `${duration}s`;
+
+                flowersContainer.appendChild(flower);
+            }
+        }
+
+        // Запускаем создание эффектов после загрузки страницы
+        window.onload = function() {
+            createSparkles();
+            createFlowers();
+        };
+    </script>
+</body>
+</html>

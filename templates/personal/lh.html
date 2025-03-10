@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с 8 марта</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1e1f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #9b6bff, #a185ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
+        }
+
+        .photo-container {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .photo-container {
+                margin-bottom: 0;
+                margin-right: 30px;
+            }
+        }
+
+        .photo {
+            width: 100%;
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message {
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .message h2 {
+            color: #9b6bff;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .message p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .credits {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: #9b6bff;
+        }
+
+        .personalized-message {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #9b6bff;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .butterflies {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .butterfly {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.7;
+            animation: fly 20s linear infinite;
+        }
+
+        @keyframes fly {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(100px, -50px) rotate(10deg);
+            }
+            50% {
+                transform: translate(200px, 0) rotate(0deg);
+            }
+            75% {
+                transform: translate(100px, 50px) rotate(-10deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        .falling-petals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .petal {
+            position: absolute;
+            top: -50px;
+            font-size: 20px;
+            animation: fall 8s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(1000px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="butterflies" id="butterflies"></div>
+    <div class="falling-petals" id="petals"></div>
+
+    <div class="card">
+        <div class="header">
+            <h1>С 8 Марта, Лиана!</h1>
+        </div>
+
+        <div class="content">
+            <div class="photo-container">
+                <div class="photo">
+                    <img src="/pic/lh.jpg" alt="Фотография">
+                </div>
+            </div>
+
+            <div class="message">
+                <h2>Дорогая Лиана!</h2>
+                <p>Поздравляем тебя с прекрасным весенним праздником – Международным женским днем! Твое присутствие делает нашу команду полной особенного шарма и вдохновения.</p>
+
+                <div class="personalized-message">
+                    Мы восхищаемся твоими талантами и индивидуальностью! Спасибо тебе за неиссякаемый позитив, креативность и вклад, который ты вносишь в нашу общую работу.
+                </div>
+
+                <p>Пусть этот день будет наполнен только приятными эмоциями, цветами и комплиментами! Желаем, чтобы весеннее настроение сопровождало тебя весь год, а каждый день приносил новые возможности для реализации твоих идей!</p>
+                <p><strong>С теплом и уважением, <br>Актив политеха</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Политех • 8 марта 2025</p>
+            <div class="credits">
+                Создано с любовью
+            </div>
+            <div class="logo">
+                <span>Политех СурГУ</span>
+                &times;
+                <span>Hedgehogs</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Создаем эффект летающих бабочек
+        function createButterflies() {
+            const butterfliesContainer = document.getElementById('butterflies');
+            const numberOfButterflies = 10;
+            const butterflyEmoji = '🦋';
+
+            for (let i = 0; i < numberOfButterflies; i++) {
+                const butterfly = document.createElement('div');
+                butterfly.classList.add('butterfly');
+                butterfly.textContent = butterflyEmoji;
+
+                // Рандомные позиции и задержки
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                butterfly.style.left = `${left}%`;
+                butterfly.style.top = `${top}%`;
+
+                const delay = Math.random() * 10;
+                butterfly.style.animationDelay = `${delay}s`;
+
+                const duration = Math.random() * 15 + 10;
+                butterfly.style.animationDuration = `${duration}s`;
+
+                butterfliesContainer.appendChild(butterfly);
+            }
+        }
+
+        // Создаем падающие лепестки
+        function createPetals() {
+            const petalsContainer = document.getElementById('petals');
+            const petalEmojis = ['🌸', '🌺', '✿', '❀', '💮'];
+            const numberOfPetals = 20;
+
+            for (let i = 0; i < numberOfPetals; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+
+                // Случайное эмодзи лепестка
+                const randomPetal = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+                petal.textContent = randomPetal;
+
+                // Случайное положение и анимация
+                const left = Math.random() * 100;
+                petal.style.left = `${left}%`;
+
+                const delay = Math.random() * 5;
+                petal.style.animationDelay = `${delay}s`;
+
+                const duration = Math.random() * 5 + 5;
+                petal.style.animationDuration = `${duration}s`;
+
+                petalsContainer.appendChild(petal);
+            }
+        }
+
+        // Запускаем создание эффектов после загрузки страницы
+        window.onload = function() {
+            createButterflies();
+            createPetals();
+        };
+    </script>
+</body>
+</html>

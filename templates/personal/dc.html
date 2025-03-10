@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление с 8 марта</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1de9b6, #2979ff);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+            }
+        }
+
+        .photo-container {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .photo-container {
+                margin-bottom: 0;
+                margin-right: 30px;
+            }
+        }
+
+        .photo {
+            width: 100%;
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message {
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .message h2 {
+            color: #1de9b6;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .message p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .credits {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: #1de9b6;
+        }
+
+        .personalized-message {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #1de9b6;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(29, 233, 182, 0.4));
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .glitter {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .glitter-piece {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px #1de9b6, 0 0 10px #1de9b6;
+            opacity: 0;
+            animation: glitter 3s linear infinite;
+        }
+
+        @keyframes glitter {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles" id="bubbles"></div>
+    <div class="glitter" id="glitter"></div>
+
+    <div class="card">
+        <div class="header">
+            <h1>С 8 Марта, Дарья!</h1>
+        </div>
+
+        <div class="content">
+            <div class="photo-container">
+                <div class="photo">
+                    <img src="/pic/dc.jpg" alt="Фотография Дарьи">
+                </div>
+            </div>
+
+            <div class="message">
+                <h2>Дорогая Дарья!</h2>
+                <p>Поздравляем тебя с Международным женским днем! В этот прекрасный весенний праздник мы хотим поблагодарить тебя за твой вклад в нашу общую работу.</p>
+
+                <div class="personalized-message">
+                    Твой профессионализм, креативность и стремление к совершенству не перестают восхищать нас. Благодаря твоему чуткому отношению к деталям и умению находить инновационные решения, наши проекты становятся особенными. Спасибо за твои идеи и твой неповторимый стиль!
+                </div>
+
+                <p>Пусть в этот день тебя окружают внимание, забота и искренние улыбки! Желаем тебе вдохновения для новых идей, успехов в реализации всех планов и проектов, и пусть каждый день будет наполнен радостью и позитивными эмоциями!</p>
+                <p><strong>С теплом и уважением, <br>Актив политеха</strong></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Политех • 8 марта 2025</p>
+            <div class="credits">
+                Создано с любовью
+            </div>
+            <div class="logo">
+                <span>Политех СурГУ</span>
+                &times;
+                <span>Hedgehogs</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Создаем эффект пузырьков
+        function createBubbles() {
+            const bubblesContainer = document.getElementById('bubbles');
+            const numberOfBubbles = 50;
+
+            for (let i = 0; i < numberOfBubbles; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+
+                // Случайные размеры и позиции
+                const size = Math.random() * 30 + 10;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+
+                const left = Math.random() * 100;
+                bubble.style.left = `${left}%`;
+
+                const delay = Math.random() * 10;
+                bubble.style.animationDelay = `${delay}s`;
+
+                const duration = Math.random() * 10 + 5;
+                bubble.style.animationDuration = `${duration}s`;
+
+                // Уникальная траектория для каждого пузырька
+                const xMove = (Math.random() * 40) - 20;
+                bubble.style.animationName = `float${i}`;
+
+                const styleSheet = document.styleSheets[0];
+                const keyframes = `@keyframes float${i} {
+                    0% {
+                        transform: translate(0, 100vh) scale(0);
+                        opacity: 0;
+                    }
+                    10% {
+                        opacity: 0.8;
+                    }
+                    90% {
+                        opacity: 0.6;
+                    }
+                    100% {
+                        transform: translate(${xMove}vw, -20vh) scale(1.2);
+                        opacity: 0;
+                    }
+                }`;
+
+                styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+                bubblesContainer.appendChild(bubble);
+            }
+        }
+
+        // Создаем эффект блесток
+        function createGlitter() {
+            const glitterContainer = document.getElementById('glitter');
+            const numberOfPieces = 50;
+
+            for (let i = 0; i < numberOfPieces; i++) {
+                const glitterPiece = document.createElement('div');
+                glitterPiece.classList.add('glitter-piece');
+
+                // Случайные позиции и задержки
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                glitterPiece.style.left = `${left}%`;
+                glitterPiece.style.top = `${top}%`;
+
+                const delay = Math.random() * 3;
+                glitterPiece.style.animationDelay = `${delay}s`;
+
+                glitterContainer.appendChild(glitterPiece);
+            }
+        }
+
+        // Запускаем создание эффектов после загрузки страницы
+        window.onload = function() {
+            createBubbles();
+            createGlitter();
+        };
+    </script>
+</body>
+</html>
