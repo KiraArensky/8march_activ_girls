@@ -19,8 +19,8 @@ def personal_greeting(name):
 # Serve static images
 @app.route('/pic/<filename>')
 def serve_image(filename):
-    return send_from_directory('static/pic', filename)
+    return send_from_directory('pic', filename)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port='5000')
